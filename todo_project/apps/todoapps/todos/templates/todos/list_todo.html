@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/itog/static/css/setting_css.css">
+    <link rel="stylesheet" href="/itog/static/css/style.css">
+
+    <link rel="icon" type="img/png" href="/itog/static/img/logo.png">
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="header flex-horizon">
+
+        <div class="logo flex-horizon">
+            <img src="/itog/static/img/logo.png" alt="logo">
+            <span> Lisotok </span>
+            <a href="/itog/core/base.html">home</a>
+        </div>
+
+        <div class="menu flex-horizon">
+            <ul class="flex-horizon">
+                <li>
+                    <a href=""> Список задач </a>
+                </li>
+                <li>
+                    <a href="/itog/todos/create.html"> Создать </a>
+                </li>
+                <li>
+                    <a href=""> Завершненные задачи </a>
+                </li>
+            </ul>
+
+            <ul class="flex-horizon">
+                <li>
+                    <a href=""> Выйти </a>
+                </li>
+                <li>
+                    <a href="/itog/users/login.html"> Войти </a>
+                </li>
+                <li>
+                    <a href="/itog/users/registration.html"> Регистрация </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    
+    <div class="content">
+        <div class="page-center">
+            <h1>Список задач</h1>
+
+            <div class="todos">
+                <div class="todo">
+                    <div>
+                        <a href="" title="Выполнить"  class="button-check-ready">&#10003;</a>
+                        <a href="" class="todo-text">
+                            <b>Название задачи</b> - Описание задачи
+                        </a>
+                    </div>
+                    
+                    <a href="">
+                        <img src="/itog/static/img/trash.png"  title="Удалить" class="icon-trash">
+
+                    </a>
+                </div>
+                <div class="todo todo-important">
+                    <div>
+                        <a href="" title="Выполнить" class="button-check-ready">&#10003;</a>
+                        <a href="" class="todo-text">
+                            <b>Название задачи</b> - Описание задачи
+                        </a>
+                    </div>
+       
+                    <a href="">
+                        <img src="/itog/static/img/trash.png"  title="Удалить" class="icon-trash">
+                    </a>
+                </div>
+
+                <div class="todo todo-important">
+                    <div>
+                        <a href="" title="Отменить" class="button-check-noready">&#10003;</a>
+                        <a href="" class="todo-text">
+                            <b>Название задачи ,eltn jdfkjdlfadfav</b> - Готовая задача
+                        </a>
+                    </div>
+
+                    <a href="">
+                        <img src="/itog/static/img/trash.png"  title="Удалить" class="icon-trash">
+                    </a>
+                </div>
+            </div>
+
+
+
+        <!-- <h1>Список пока пуст </h1>
+        {% if title == 'Список задач' %}
+        <h2>Похоже, у вас нет задач! Хорошая работа.</h2>
+        {% else %}
+        <h2>Похоже, у вас нет выполненых задач...</h2>
+        {% endif %}
+        <a href="{% url 'todo:create_todo' %}" role="button" class='button-red'>Создать задачу</a> -->
+
+
+        </div>
+    </div>
+</body>
+</html>

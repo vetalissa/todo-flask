@@ -1,0 +1,174 @@
+/* Общее */
+body{
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-weight: 400;
+  color: #212529;
+  text-align: left;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+p{
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: 500;
+}
+
+h2{
+  font-size: 32px;
+  font-weight: 500;
+}
+
+/* Верхняя шапка */
+.header{
+  height: 60px;
+  width: 100%;
+  background-color: #a54239;
+}
+
+.error_message li ul{
+    display: flex;
+    margin: 1px 0px 7px 15px;
+}
+
+
+.headre_flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo_text{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.header_menu{
+  min-width: 800px;
+  justify-content: space-between;
+}
+
+.header_link{
+  color: #fff;
+  font-size: 16px;
+  margin: 10px;
+}
+
+/* контент на странице */
+.cont_home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 40px auto;
+  width: 800px;
+  height: 500px;
+/*
+  background-color: red; */
+}
+
+.cont_text{
+  margin: 20px 0px;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* кнопка */
+.cont_button{
+    font-size: 20px;
+    color: #fff;
+    background-color: #a54239;
+    padding: 9px 25px;
+    border-radius: 5px;
+}
+
+/* нет списка задач */
+.cont_home h2{
+  margin: 40px 0px;
+}
+
+.corrent_flex-start{
+  justify-content: flex-start;
+}
+
+/* есть список сосисок */
+.todo_text{
+  color: #fff;
+  font-size: 16px;
+}
+
+.todos{
+  width: 100%;
+  margin: 20px 30px;
+}
+
+.todo{
+  padding: 20px 10px;
+  border: 1px solid rgb(255 255 255 / 20%);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo_important{
+  background-color: #ab303d42;
+}
+
+.red{
+    color: #fff;
+}
+
+
+.button_margin{
+  margin: 0px 5px;
+}
+
+.button_ready{
+  background: none;
+  padding: 0px 4px;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  opacity: 0.1;
+}
+
+
+
+.button_ready:hover{
+  opacity:1;
+}
+
+
+
+
+/* create todo */
+label{
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+}
+
+.form_create{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+
+.title_form{
+  color: white;
+  padding: 6px 12px;
+  width: 445px;
+  height: 40px;
+  background: none;
+  border: 1px solid rgb(255 255 255 / 33%);
+}
+
+.memo{
+  height: 120px;
+}
