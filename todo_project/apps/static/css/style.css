@@ -1,0 +1,199 @@
+body{
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight: 400;
+    color: #212529;
+    text-align: left;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+p{
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+h2{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+a{
+    color: #fff;
+    font-size: 16px;
+}
+
+
+
+
+/* my style */
+
+/* home page */
+
+.flex-horizon{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 8%;
+    width:  100%;
+    background-color: #a54239;
+}
+
+.logo img{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+.logo span{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.menu{
+    min-width: 50%;
+    justify-content: space-between; 
+}
+
+.menu ul{
+
+}
+
+.menu li{
+    margin: 10px; 
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 40px auto;
+    width: 40%;
+    /* min-height: 50%; */
+    /* height: 50%; */
+}
+
+.page-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.page-center p{
+    text-align: center;
+    margin: 20px 0px;
+}
+
+
+.button-red{
+    font-size: 20px;
+    color: #fff;
+    background-color: #a54239;
+    padding: 9px 25px;
+    border-radius: 5px;
+}
+
+/* create todo */
+
+label{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+}
+
+.form-input{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+
+.form-input input, textarea{
+    color: white;
+    padding: 6px 12px;
+    width: 445px;
+    height: 40px;
+    background: none;
+    border: 1px solid rgb(255 255 255 / 33%);
+}
+
+textarea{
+    height: 120px;
+}
+
+.snoska{
+    margin: 20px 0px;
+    text-align: center;
+}
+
+/* todo */
+
+
+.todos{
+    width: 100%;
+    margin: 20px 30px;
+}
+
+.todo{
+    padding: 20px 10px;
+    border: 1px solid rgb(255 255 255 / 20%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 100%; */
+}
+
+.todo-important{
+    background-color: #ab303d42;
+  }
+
+.icon-trash{
+    width: 20px;
+    height: 20px;
+    opacity: 0.1;
+}
+
+.icon-trash:hover{
+    opacity:1;
+}
+
+.button-check-ready{
+    background: none;
+    padding: 0px 4px;
+    border: 2px solid #fff;
+    opacity: 0.1;
+  }
+
+  
+.button-check-ready:hover{
+    opacity:1;
+}
+
+.button-check-noready{
+    background: none;
+    padding: 0px 4px;
+    border: 2px solid #fff;
+    opacity: 1;
+}
+
+.button-check-noready:hover{
+    opacity:0.1;
+}
+
+
+.todo-text{
+    margin-left: 20px;
+}

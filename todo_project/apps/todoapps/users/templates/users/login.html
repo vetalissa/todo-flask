@@ -1,70 +1,27 @@
-<!DOCTYPE html>
-<html lang="rus">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/itog/static/css/setting_css.css">
-    <link rel="stylesheet" href="/itog/static/css/style.css">
+{% extends 'base.html' %}
 
-    <link rel="icon" type="img/png" href="/itog/static/img/logo.png">
-    <title>Home Page</title>
-</head>
-<body>
-    <div class="header flex-horizon">
+{% block title %} Вход {% endblock %}
 
-        <div class="logo flex-horizon">
-            <img src="/itog/static/img/logo.png" alt="logo">
-            <span> Lisotok </span>
+{% block content %}
+<div class="content">
+    <h2> Вход </h2>
+
+    <form action="" method="POST">
+        <div class="form-input">
+            <label for="username">Имя</label>
+            <input type="text" name="username" id="username" placeholder="username" required="required">
         </div>
 
-        <div class="menu flex-horizon">
-            <ul class="flex-horizon">
-                <li>
-                    <a href="/itog/todos/list_todo.html"> Список задач </a>
-                </li>
-                <li>
-                    <a href="/itog/todos/create.html"> Создать </a>
-                </li>
-                <li>
-                    <a href="/itog/todos/completed.html"> Завершненные задачи </a>
-                </li>
-            </ul>
-
-            <ul class="flex-horizon">
-                <li>
-                    <a href=""> Выйти </a>
-                </li>
-                <li>
-                    <a href="/itog/users/login.html"> Войти </a>
-                </li>
-                <li>
-                    <a href="/itog/users/registration.html"> Регистрация </a>
-                </li>
-            </ul>
+        <div class="form-input">
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password" placeholder="password" required="required">
         </div>
 
+        <input type="submit" value="Войти" class="button-red">
+    </form>
+    <div class="snoska">
+        <p>Нет аккаунта?</p>
+        <a href="{{ url_for('users.register') }}"> Регистрация </a>
     </div>
-
-    
-    <div class="content">
-        <h2> Вход </h2>
-
-        <form action="" method="POST">
-            <div class="form-input">
-                <label for="username">Имя</label>
-                <input type="text" name="username" id="username" placeholder="username" required="required">
-            </div>
-
-            <div class="form-input">
-                <label for="password">Пароль</label>
-                <input type="password" name="password" id="password" placeholder="password" required="required">
-            </div>
-
-            <input type="submit" value="Войти" class="button-red">
-        </form>
-        <div class="snoska">
-            <p>Нет аккаунта?</p>
-            <a href=""> Регистрация </a>
-        </div>
-    </div>
-</body>
-</html>
+</div>
+{% endblock %}

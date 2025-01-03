@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/setting_css.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="icon" type="img/png" href="/static/img/logo.png">
+    <title>{% block title %} Title {% endblock %}</title>
+</head>
+<body>
+    <div class="header flex-horizon">
+
+        <div class="logo flex-horizon">
+            <img src="/static/img/logo.png" alt="logo">
+            <span> Lisotok </span>
+        </div>
+
+        <div class="menu flex-horizon">
+            <ul class="flex-horizon">
+                <li>
+                    <a href="{{ url_for('todos.view_todo') }}"> Список задач </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('todos.create') }}"> Создать </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('todos.completed') }}"> Завершненные задачи </a>
+                </li>
+            </ul>
+
+            <ul class="flex-horizon">
+                <li>
+                    <a href=""> Выйти </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('users.login') }}"> Войти </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('users.register') }}"> Регистрация </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    {% block content %} Content {% endblock %}
+</body>
+</html>
