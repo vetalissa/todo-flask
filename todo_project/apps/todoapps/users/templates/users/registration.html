@@ -5,8 +5,12 @@
 {% block content %}
 <div class="content">
     <h2> Вход </h2>
-
-    <form action="" method="POST">
+    {% for cat, msg in get_flashed_messages(True) %}
+    <div class="message {{cat}}">
+            <p>{{msg}}</p>
+    </div>
+    {% endfor %}
+    <form action="{{ url_for('users.register') }}" method="POST">
         <div class="form-input">
             <label for="username">Имя</label>
             <input type="text" name="username" id="username" placeholder="username" required="required">

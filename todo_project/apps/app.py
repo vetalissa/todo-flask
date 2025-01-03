@@ -37,10 +37,10 @@ def create_app():
     # Routers
     from apps.todoapps.core.routers import core
     from apps.todoapps.todos.routers import todos
-    from apps.todoapps.users.routers import create_user_blueprint
+    from apps.todoapps.users.routers import users
 
     app.register_blueprint(core, url_prefix='/')
-    app.register_blueprint(create_user_blueprint(bcrypt), url_prefix='/users', bcrypt=bcrypt)
+    app.register_blueprint(users, url_prefix='/users', bcrypt=bcrypt)
     app.register_blueprint(todos, url_prefix='/todos')
 
     migrate.init_app(app, db)

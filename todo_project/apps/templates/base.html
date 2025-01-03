@@ -17,6 +17,8 @@
         </div>
 
         <div class="menu flex-horizon">
+
+            {% if current_user.is_authenticated %}
             <ul class="flex-horizon">
                 <li>
                     <a href="{{ url_for('todos.view_todo') }}"> Список задач </a>
@@ -25,14 +27,17 @@
                     <a href="{{ url_for('todos.create') }}"> Создать </a>
                 </li>
                 <li>
-                    <a href="{{ url_for('todos.completed') }}"> Завершненные задачи </a>
+                    <a href="{{ url_for('todos.completed') }}"> Завершенные задачи </a>
                 </li>
             </ul>
 
             <ul class="flex-horizon">
                 <li>
-                    <a href=""> Выйти </a>
+                    <a href="{{ url_for('users.logout')}}"> Выйти </a>
                 </li>
+            </ul>
+            {% else %}
+            <ul class="flex-horizon">
                 <li>
                     <a href="{{ url_for('users.login') }}"> Войти </a>
                 </li>
@@ -40,6 +45,7 @@
                     <a href="{{ url_for('users.register') }}"> Регистрация </a>
                 </li>
             </ul>
+            {% endif %}
         </div>
 
     </div>

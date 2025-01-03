@@ -197,3 +197,17 @@ textarea{
 .todo-text{
     margin-left: 20px;
 }
+
+.message{
+    border: 2px solid #fff;
+    margin: 20px 0px;
+    padding: 20px;
+}
+
+.success{
+    background-color: #3eab3042;
+}
+
+.error{
+    background-color: #ab303d42;
+}
