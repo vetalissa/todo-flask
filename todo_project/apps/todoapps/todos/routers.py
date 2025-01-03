@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint
+from flask import Blueprint, render_template
 
 todos = Blueprint('todos', __name__, template_folder='templates')
 
@@ -6,6 +6,7 @@ todos = Blueprint('todos', __name__, template_folder='templates')
 @todos.route('/view-todo')
 def view_todo():
     return render_template('todos/list_todo.html')
+
 
 @todos.route('/completed')
 def completed():
