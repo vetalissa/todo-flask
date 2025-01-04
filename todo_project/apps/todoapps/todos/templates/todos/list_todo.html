@@ -6,57 +6,37 @@
 <div class="content">
     <div class="page-center">
         <h1>Список задач</h1>
-
+        {% for cat, msg in get_flashed_messages(True) %}
+        <div class="message {{cat}}">
+            <p>{{msg}}</p>
+        </div>
+        {% endfor %}
         {% if todo_list %}
         <div class="todos">
 
             {% for todo in todo_list %}
             <div class="todo {% if todo.important %} todo-important {% endif %}">
                 <div>
-                    <a href="" title="Выполнить" class="button-check-ready">&#10003;</a>
+                    <a href="{{ url_for('todos.done', todo_id=todo.id, redirect_to='view_todo') }}" title="Выполнить" class="button-check-ready">
+                        &#10003;
+                    </a>
                     <a href="" class="todo-text">
-                        <b>{{ todo.title|truncate(40) }}</b> - {{ todo.description|truncate(25)  }}
+                        <b>{{ todo.title|truncate(40) }}</b> - {{ todo.description|truncate(25) }}
                     </a>
                 </div>
 
-                <a href="">
+                <a href="{{ url_for('todos.delete', todo_id=todo.id,  redirect_to='view_todo') }}">
                     <img src="/static/img/trash.png" title="Удалить" class="icon-trash">
                 </a>
             </div>
             {% endfor %}
 
-<!--            <div class="todo todo-important">-->
-<!--                <div>-->
-<!--                    <a href="" title="Выполнить" class="button-check-ready">&#10003;</a>-->
-<!--                    <a href="" class="todo-text">-->
-<!--                        <b>Название задачи</b> - Описание задачи-->
-<!--                    </a>-->
-<!--                </div>-->
+            {% else %}
 
-<!--                <a href="">-->
-<!--                    <img src="/itog/static/img/trash.png" title="Удалить" class="icon-trash">-->
-<!--                </a>-->
-<!--            </div>-->
+            <h1 style="margin: 20px 0px;">Список пуст </h1>
+            <a href="{{ url_for('todos.create') }}" role="button" class='button-red'>Создать задачу</a>
+            {% endif %}
 
-<!--            <div class="todo todo-important">-->
-<!--                <div>-->
-<!--                    <a href="" title="Отменить" class="button-check-noready">&#10003;</a>-->
-<!--                    <a href="" class="todo-text">-->
-<!--                        <b>Название задачи ,eltn jdfkjdlfadfav</b> - Готовая задача-->
-<!--                    </a>-->
-<!--                </div>-->
-
-<!--                <a href="">-->
-<!--                    <img src="/itog/static/img/trash.png" title="Удалить" class="icon-trash">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
-        {% else %}
-
-        <h1 style="margin: 20px 0px;">Список пуст </h1>
-        <a href="{{ url_for('todos.create') }}" role="button" class='button-red'>Создать задачу</a>
-        {% endif %}
-
+        </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
