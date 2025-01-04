@@ -9,9 +9,7 @@ users = Blueprint('users', __name__, template_folder='templates')
 
 @users.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'GET':
-        return render_template('users/login.html')
-    elif request.method == 'POST':
+    if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
 
@@ -24,39 +22,43 @@ def login():
                 flash('Неверные данные', category='error')
         else:
             flash('Пользователя не существует.', category='error')
-        return render_template('users/login.html')
+    return render_template('users/login.html')
 
 
 @users.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'GET':
-        return render_template('users/registration.html')
-    elif request.method == 'POST':
+    if request.method == 'POST':
         username = request.form.get('username')
         if User.query.filter(User.username == username).one_or_none() is None:
-            password1 = request.form.get('password1')
-            password2 = request.form.get('password2')
-            if password1 == password2:
-                try:
-                    hashed_password = bcrypt.generate_password_hash(password1)
+            try:
+                password = check_and_hashed_password()
+                user = User(username=username, password=password)
 
-                    user = User(username=username, password=hashed_password)
+                db.session.add(user)
+                db.session.commit()
 
-                    db.session.add(user)
-                    db.session.commit()
-
-                    flash('Вы успешно зарегистрированы!', category='success')
-                    return redirect(url_for('users.login'))
-                except:
-                    flash('Извините, произошла ошибка. Пробуйте снова.', category='error')
-            else:
-                flash('Пароли не совпадают, попробуйте еще раз.', category='error')
-
+                flash('Вы успешно зарегистрированы!', category='success')
+                return redirect(url_for('users.login'))
+            except ValueError as e:
+                flash(f'Ошибка: {e}', category='error')
+            except Exception:
+                flash('Извините, произошла ошибка. Пробуйте снова.', category='error')
         else:
             flash('Имя уже занято, попробуйте другое...', category='error')
+    return render_template('users/registration.html')
 
 
 @users.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('core.index'))
+
+
+def check_and_hashed_password():
+    password1 = request.form.get('password1')
+    password2 = request.form.get('password2')
+    if len(password1) < 10:
+        raise ValueError('Длина пароля должна быть длиннее 10 символов.')
+    if password1 != password2:
+        raise ValueError('Пароли не совпадают, попробуйте ещё раз. ')
+    return bcrypt.generate_password_hash(password1)
