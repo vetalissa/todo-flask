@@ -3,62 +3,60 @@
 {% block title %} Список задач {% endblock %}
 
 {% block content %}
- <div class="content">
-        <div class="page-center">
-            <h1>Список задач</h1>
+<div class="content">
+    <div class="page-center">
+        <h1>Список задач</h1>
 
-            <div class="todos">
-                <div class="todo">
-                    <div>
-                        <a href="" title="Выполнить"  class="button-check-ready">&#10003;</a>
-                        <a href="" class="todo-text">
-                            <b>Название задачи</b> - Описание задачи
-                        </a>
-                    </div>
+        {% if todo_list %}
+        <div class="todos">
 
-                    <a href="">
-                        <img src="/itog/static/img/trash.png"  title="Удалить" class="icon-trash">
-
-                    </a>
-                </div>
-                <div class="todo todo-important">
-                    <div>
-                        <a href="" title="Выполнить" class="button-check-ready">&#10003;</a>
-                        <a href="" class="todo-text">
-                            <b>Название задачи</b> - Описание задачи
-                        </a>
-                    </div>
-
-                    <a href="">
-                        <img src="/itog/static/img/trash.png"  title="Удалить" class="icon-trash">
+            {% for todo in todo_list %}
+            <div class="todo {% if todo.important %} todo-important {% endif %}">
+                <div>
+                    <a href="" title="Выполнить" class="button-check-ready">&#10003;</a>
+                    <a href="" class="todo-text">
+                        <b>{{ todo.title|truncate(40) }}</b> - {{ todo.description|truncate(25)  }}
                     </a>
                 </div>
 
-                <div class="todo todo-important">
-                    <div>
-                        <a href="" title="Отменить" class="button-check-noready">&#10003;</a>
-                        <a href="" class="todo-text">
-                            <b>Название задачи ,eltn jdfkjdlfadfav</b> - Готовая задача
-                        </a>
-                    </div>
-
-                    <a href="">
-                        <img src="/itog/static/img/trash.png"  title="Удалить" class="icon-trash">
-                    </a>
-                </div>
+                <a href="">
+                    <img src="/static/img/trash.png" title="Удалить" class="icon-trash">
+                </a>
             </div>
+            {% endfor %}
 
+<!--            <div class="todo todo-important">-->
+<!--                <div>-->
+<!--                    <a href="" title="Выполнить" class="button-check-ready">&#10003;</a>-->
+<!--                    <a href="" class="todo-text">-->
+<!--                        <b>Название задачи</b> - Описание задачи-->
+<!--                    </a>-->
+<!--                </div>-->
 
+<!--                <a href="">-->
+<!--                    <img src="/itog/static/img/trash.png" title="Удалить" class="icon-trash">-->
+<!--                </a>-->
+<!--            </div>-->
 
-        <!-- <h1>Список пока пуст </h1>
-        {% if title == 'Список задач' %}
-        <h2>Похоже, у вас нет задач! Хорошая работа.</h2>
+<!--            <div class="todo todo-important">-->
+<!--                <div>-->
+<!--                    <a href="" title="Отменить" class="button-check-noready">&#10003;</a>-->
+<!--                    <a href="" class="todo-text">-->
+<!--                        <b>Название задачи ,eltn jdfkjdlfadfav</b> - Готовая задача-->
+<!--                    </a>-->
+<!--                </div>-->
+
+<!--                <a href="">-->
+<!--                    <img src="/itog/static/img/trash.png" title="Удалить" class="icon-trash">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
         {% else %}
-        <h2>Похоже, у вас нет выполненых задач...</h2>
+
+        <h1 style="margin: 20px 0px;">Список пуст </h1>
+        <a href="{{ url_for('todos.create') }}" role="button" class='button-red'>Создать задачу</a>
         {% endif %}
-        <a href="" role="button" class='button-red'>Создать задачу</a> -->
 
-
-        </div>
     </div>
+</div>
 {% endblock %}

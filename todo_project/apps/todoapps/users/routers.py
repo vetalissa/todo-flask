@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import login_user, logout_user
 
 from apps.app import bcrypt, db
+
 from .models import User
 
 users = Blueprint('users', __name__, template_folder='templates')

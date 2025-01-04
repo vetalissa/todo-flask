@@ -3,29 +3,32 @@
 {% block title %} Создание задачи {% endblock %}
 
 {% block content %}
- <div class="content">
-        <div class="page-center">
-            <h2> Новая задача </h2>
-
-            <form class="page-center" action="" method="POST">
-                <div class="form-input">
-                    <label for="title">Задача</label>
-                    <input type="text" name="title" id="title" placeholder="Что нужно сделать?" required="required">
-                </div>
-
-                <div class="form-input">
-                    <label for="description">Описание задачи</label>
-                    <textarea name="description" id="description"  placeholder='Напишите описание задачи'></textarea>
-                </div>
-
-                <div>
-                    <input type="checkbox" name="important" id="important">
-                    <label for="important"> Важное дело</label>
-                </div>
-
-
-                <input type="submit" value="Создать" class="button-red">
-            </form>
+<div class="content">
+    <div class="page-center">
+        <h2> Новая задача </h2>
+        {% for cat, msg in get_flashed_messages(True) %}
+        <div class="message {{cat}}">
+            <p>{{msg}}</p>
         </div>
+        {% endfor %}
+        <form class="page-center" action="{{ url_for('todos.create') }}" method="POST">
+            <div class="form-input">
+                <label for="title">Задача</label>
+                <input type="text" name="title" id="title" placeholder="Что нужно сделать?" required="required">
+            </div>
+
+            <div class="form-input">
+                <label for="description">Описание задачи</label>
+                <textarea name="description" id="description" placeholder='Напишите описание задачи'></textarea>
+            </div>
+
+            <div>
+                <input type="checkbox" name="important" id="important">
+                <label for="important"> Важное дело</label>
+            </div>
+
+            <input type="submit" value="Создать" class="button-red">
+        </form>
     </div>
+</div>
 {% endblock %}
