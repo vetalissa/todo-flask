@@ -17,10 +17,11 @@
             {% for todo in todo_list %}
             <div class="todo {% if todo.important %} todo-important {% endif %}">
                 <div>
-                    <a href="{{ url_for('todos.done', todo_id=todo.id, redirect_to='view_todo') }}" title="Выполнить" class="button-check-ready">
+                    <a href="{{ url_for('todos.done', todo_id=todo.id, redirect_to='view_todo') }}" title="Выполнить"
+                       class="button-check-ready">
                         &#10003;
                     </a>
-                    <a href="" class="todo-text">
+                    <a href="{{ url_for('todos.update', todo_id=todo.id) }}" class="todo-text">
                         <b>{{ todo.title|truncate(40) }}</b> - {{ todo.description|truncate(25) }}
                     </a>
                 </div>

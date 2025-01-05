@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} Редактирование задачи {% endblock %}
+
+
+{% block content %}
+<div class="content">
+    <div class="page-center">
+        <h2> Редактирование задачи </h2>
+
+        {% for cat, msg in get_flashed_messages(True) %}
+        <div class="message {{cat}}">
+            <p>{{msg}}</p>
+        </div>
+        {% endfor %}
+
+
+        <form class="page-center" action="{{ url_for('todos.update', todo_id=todo.id) }}" method="POST">
+
+            <div class="form-input">
+                <label for="title">Задача</label>
+                <input type="text" name="title" id="title" placeholder="Что нужно сделать?" value="{{ todo.title }}"
+                       required="required">
+            </div>
+
+            <div class="form-input">
+                <label for="description">Описание задачи</label>
+                <textarea name="description" id="description" placeholder='Напишите описание задачи'>{{ todo.description }}</textarea>
+            </div>
+
+            {% if todo.important %}
+            <div>
+                <input type="checkbox" name="important" id="important">
+                <label for="important"> Важное дело</label>
+            </div>
+            {% else %}
+            <div>
+                <input type="checkbox" name="important" id="important">
+                <label for="important"> Важное дело</label>
+            </div>
+            {% endif %}
+
+            <input type="submit" value="Сохранить" class="button-red">
+        </form>
+
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
